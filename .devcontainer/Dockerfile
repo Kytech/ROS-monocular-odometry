@@ -11,12 +11,15 @@ RUN groupadd --gid $USER_GID ros \
     && chmod 0440 /etc/sudoers.d/ros
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip neovim
+# Auto-source ROS base environment and colcon_cd command
+RUN echo "source /opt/ros/iron/setup.bash" >> /home/ros/.bashrc \
+    && echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> /home/ros/.bashrc \
+    && echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> /home/ros/.bashrc
 ENV SHELL /bin/bash
 
 # ********************************************************
 # * Anything else you want to do like clean up goes here *
 # ********************************************************
 
-# [Optional] Set the default user. Omit if you want to keep the default as root.
 USER ros
 CMD ["/bin/bash"]
