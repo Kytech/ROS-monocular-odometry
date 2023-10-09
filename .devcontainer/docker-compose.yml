@@ -1,0 +1,9 @@
+version: '3'
+services:
+  ros2:
+    build:
+      dockerfile: "Dockerfile"
+    network_mode: "host"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ..:/home/ros/workspace
