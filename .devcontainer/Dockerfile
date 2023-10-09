@@ -1,4 +1,4 @@
-FROM ros:iron-ros-base
+FROM ros:iron
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
