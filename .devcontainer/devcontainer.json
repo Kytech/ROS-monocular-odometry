@@ -26,9 +26,9 @@
         "_colcon_cd_root": "/home/ros/workspace"
     },
     "mounts": [
-        "type=volume,source=ros2-monocular-odometry-buildcache,target=/home/ros/workspace/build",
-        "type=volume,source=ros2-monocular-odometry-install,target=/home/ros/workspace/install",
-        "type=volume,source=ros2-monocular-odometry-logs,target=/home/ros/workspace/log"
+        "type=volume,source=ros2-${devcontainerId}-buildcache,target=/home/ros/workspace/build",
+        "type=volume,source=ros2-${devcontainerId}-install,target=/home/ros/workspace/install",
+        "type=volume,source=ros2-${devcontainerId}-logs,target=/home/ros/workspace/log"
     ],
     "runArgs": [
         "--net=host",
